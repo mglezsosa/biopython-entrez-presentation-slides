@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Biopython Entrez presentation</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/deepblue.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<a href="https://biopython.org/"><img src="lib/resources/biopython_logo_white.png" alt="Biopython logo"
+					style="border: none; background-color: rgba(0, 0, 0, 0); box-shadow: none"
+					height="200"/></a>
+					<h2><a target="_blank" href="https://github.com/biopython/biopython/tree/master/Bio/Entrez">Entrez module</a></h2>
+					<h4>accessing <a href="http://www.ncbi.nlm.nih.gov">NCBI</a> over the WWW</h4>
+					<p><small>Speaker: Miguel González Sosa</small></p>
+					<p><small><a href="mailto:sosa@uma.es">sosa@uma.es</a></small></p>
+				</section>
+				<section>
+					<h2>What is Entrez?</h2>
+					<a href="https://www.ncbi.nlm.nih.gov/search/">https://www.ncbi.nlm.nih.gov/search/</a>
+					<aside class="notes">
+						Es un sistema de recuperación de datos que permite a los usuarios acceder
+						a las bases de datos del NCBI como PubMed, GenBank, GEO y muchas otras.
+					</aside>
+				</section>
+				<section>
+					<h2>What is the Biopython <code>Bio.Entrez</code> module?</h2>
+					<p>
+						The <code>Bio.Entrez</code> module makes use of the <i>nine</i>
+						<a href="https://www.ncbi.nlm.nih.gov/books/NBK25501/">Entrez
+						Programming Utilities</a> (also known as EUtils).
+					</p>
+				</section>
+				<section>
+					<h2>The nine utilities of Entrez.</h2>
+					<ul>
+						<li><code>esearch</code>: text searches.</li>
+						<li><code>ecitmatch</code>: batch citation searching in PubMed.</li>
+						<li><code>epost</code>: UID uploads.</li>
+						<li><code>esummary</code>: document summary downloads.</li>
+						<li><code>efetch</code>: data record downloads.</li>
+						<li><code>elink</code>: Entrez links.</li>
+						<li><code>einfo</code>: database statistics.</li>
+						<li><code>egquery</code>: global query.</li>
+						<li><code>espell</code>: spelling suggestions.</li>
+					</ul>
+					<aside class="notes">
+
+					</aside>
+				</section>
+				<section>
+					<h2>NCBI restrictions and guidelines.</h2>
+					<ul>
+						<li>Since May 1, 2018, is not possible to do more than
+						three requests every second without an API key.</li>
+						<li>With an API key, we can post up to 10 request per second.</li>
+					</ul>
+					<p>You can request your API key in <a href="https://www.ncbi.nlm.nih.gov/account/settings/">
+						https://www.ncbi.nlm.nih.gov/account/settings/
+					</a>.</p>
+				</section>
+				<section>
+					<h2>NCBI restrictions and guidelines.</h2>
+						<ul><li>Provide your email.</li>
+						<pre><code class="python" data-trim contenteditable="">
+							>>> from Bio import Entrez
+							>>> Entrez.email = "A.N.Other@example.com"
+						</code></pre>
+						<li>Provide your tool's name.</li>
+						<pre><code class="python" data-trim contenteditable="">
+							>>> from Bio import Entrez
+							>>> Entrez.tool = "MyLocalScript"
+						</code></pre>
+						</ul>
+				</section>
+				<section>
+					<h2>Why did I choose this software?</h2>
+				</section>
+				<section data-background="#FFF" style="color: #111">
+					<h2 style="color: #111">Code quality.</h2>
+					<ul>
+						<li><span class="pro">Modular, well-formated code</span>.</li>
+						<li><span class="pro">Perfectly unit tested</span>.</li>
+						<li><span class="pro">Usage of <code>unittest</code> python native module</span>.</li>
+						<li><span class="pro">Thorough code documentation</span>.</li>
+						<li><span class="pro">Even with examples!</span></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Conclusions.</h2>
+				</section>
+				<section>
+					<h2>References</h2>
+					<p><a href="https://www.ncbi.nlm.nih.gov/books/NBK25500/">
+						<small>https://www.ncbi.nlm.nih.gov/books/NBK25500/</small>
+					</a></p>
+					<p><a href="http://biopython.org/DIST/docs/tutorial/Tutorial.pdf">
+						<small>http://biopython.org/DIST/docs/tutorial/Tutorial.pdf</small>
+					</a></p>
+					<p><a href="https://github.com/biopython/biopython/blob/master/Bio/Entrez/__init__.py">
+						<small>https://github.com/biopython/biopython/blob/master/Bio/Entrez/__init__.py</small>
+					</a></p>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.configure({ pdfMaxPagesPerSlide: 1 });
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				],
+				slideNumber: true
+			});
+		</script>
+	</body>
+</html>

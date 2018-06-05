@@ -1,0 +1,57 @@
+/**
+* Custom theme for reveal.js.
+*
+* Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+*/
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Overpass+Mono);
+@import url(https://fonts.googleapis.com/css?family=Overpass:400,700,400italic,700italic);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: darken(#306998, 20%);
+$mainFont: 'Overpass', sans-serif;
+$linkColorHover: #f6d365;
+$linkColor: darken( $linkColorHover, 20% );
+$headingFont: 'Overpass', Impact, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: -0.03em;
+$headingTextTransform: none;
+$selectionBackgroundColor: #f6d365;
+
+.reveal {
+    code {
+	    border-radius: 10px;
+    }
+    pre {
+        border-radius: 10px;
+    }
+}
+
+.pro {
+    color: #7f9f7f;
+}
+
+.con {
+    color: #cc9393;
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.center-image {
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.3);
+}
