@@ -1,4 +1,4 @@
-# Biopython Entrz module presentation slides
+# Biopython Entrez module presentation slides
 
 Presentation slides for Advanced Programming in Bioinformatics subject assignment. Usability and code quality review.
 

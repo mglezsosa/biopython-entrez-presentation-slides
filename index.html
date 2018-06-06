@@ -39,6 +39,7 @@
 					<aside class="notes">
 						Es un sistema de recuperación de datos que permite a los usuarios acceder
 						a las bases de datos del NCBI como PubMed, GenBank, GEO y muchas otras.
+						Es algo más que el buscador del NCBI.
 					</aside>
 				</section>
 				<section>
@@ -48,22 +49,72 @@
 						<a href="https://www.ncbi.nlm.nih.gov/books/NBK25501/">Entrez
 						Programming Utilities</a> (also known as EUtils).
 					</p>
+					<aside class="notes">
+						A entrez podemos acceder mediante el navegador web, pero si requerimos
+						de un proceso automatizado tenemos que hacer uso de las utilidades
+						de programación de Entrez.
+						Entrez ofrece nueve utilidades y el módulo Bio.Entrez se encarga
+						de acceder a ellas desde un script en Python.
+					</aside>
 				</section>
 				<section>
 					<h2>The nine utilities of Entrez.</h2>
 					<ul>
 						<li><code>esearch</code>: text searches.</li>
 						<li><code>ecitmatch</code>: batch citation searching in PubMed.</li>
-						<li><code>epost</code>: UID uploads.</li>
 						<li><code>esummary</code>: document summary downloads.</li>
 						<li><code>efetch</code>: data record downloads.</li>
 						<li><code>elink</code>: Entrez links.</li>
 						<li><code>einfo</code>: database statistics.</li>
 						<li><code>egquery</code>: global query.</li>
 						<li><code>espell</code>: spelling suggestions.</li>
+						<li><code>epost</code>: UID uploads.</li>
 					</ul>
 					<aside class="notes">
-
+						<ul>
+							<li>
+								Tenemos una utilidad para hacer una búsqueda de texto en un determinada
+								base de datos.
+							</li>
+							<li>
+								Tenemos una utilidad para encontrar artículos en PubMed dado una cita parcial.
+							</li>
+							<li>
+								<code>esummary</code> devuelve un resumen de una determinada entrada.
+							</li>
+							<li>
+								Con <code>efetch</code> podemos descargarnos información como las secuencias
+								fasta de un nucleótido o una proteína.
+							</li>
+							<li>
+								<code>elink</code> busca entradas relacionadas con la que busquemos.
+							</li>
+							<li>
+								<code>einfo</code> devuelve información sobre una base de datos en sí, no
+								de los datos que contiene.
+							</li>
+							<li>
+								<code>egquery</code> hace una búsqueda de texto en todas las bases de datos a la
+								vez.
+							</li>
+							<li>
+								<code>espell</code> hace sugerencias cuando hacemos una búsqueda por texto.
+								Nos puede corregir si escribimos algo mal.
+							</li>
+							<li>
+								<code>epost</code> sirve para almacenar una serie de identificadores en una sesión
+								para poder realizar operaciones sobre esos elementos más tarde. Por ejemplo
+								si queremos descargar un conjunto medianamente grande de secuencias con
+								<code>efetch</code> (cosa que no está recomendada), en vez de hacer una petición
+								a ésta con una url gigante, que puede dar algún problema, podemos almacenar
+								temporalmente los identificadores en una sesión en el servidor y sobre ellos
+								podemos hacer las operaciones oportunas.
+							</li>
+							<li>
+								A parte de estas nueve utilidades <code>Bio.Entrez</code> ofrece un parseador
+								propio de xml, aunque python ya tiene uno integrado.
+							</li>
+						</ul>
 					</aside>
 				</section>
 				<section>
@@ -102,7 +153,24 @@
 						<li><span class="pro">Usage of <code>unittest</code> python native module</span>.</li>
 						<li><span class="pro">Thorough code documentation</span>.</li>
 						<li><span class="pro">Even with examples!</span></li>
+						<li><span class="pro">Continous integration with TravisCI</span>.</li>
+						<li><span class="pro">Contribution rules</span>.</li>
 					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Script de unittest de 4300 líneas
+								<a href="https://github.com/biopython/biopython/blob/master/Tests/test_Entrez_parser.py">
+									https://github.com/biopython/biopython/blob/master/Tests/test_Entrez_parser.py
+								</a>
+							</li>
+							<li>
+								Contribuciones deben regirse por una serie de reglas:
+								<a href="https://github.com/biopython/biopython/blob/master/CONTRIBUTING.rst">
+									https://github.com/biopython/biopython/blob/master/CONTRIBUTING.rst
+								</a>
+							</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
 					<h2>Conclusions.</h2>
